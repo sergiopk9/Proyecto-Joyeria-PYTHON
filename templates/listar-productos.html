@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% include "menu.html" %}
+
+    <div>
+        <a href="/admin/registrar-joya">registrar una nueva joya para la tienda</a>
+    </div>
+    <div>
+        listado de joyas:
+    </div>
+        {% for j in joyas %}
+        <div>detalle de ropa:</div>
+        <div style="margin: 10px">
+            <!-- <img src="server/imagenes/{{ j.id }}.jpg" alt="{{ j.nombre }}"> -->
+            <p>nombre: {{ j.nombre }}</p>
+            <p>tipo: {{ j.tipo }}</p>
+            <p>descripcion: {{ j.descripcion }}</p>
+            <p>precio: {{ j.precio }}€</p>
+            <a onclick="return confirm('¿seguro?')" href="/admin/borrar-joya/{{j.id}}">borrar joya</a>
+            {% endfor %}
+        </div>
+</body>
+</html>
